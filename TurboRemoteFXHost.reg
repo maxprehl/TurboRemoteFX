@@ -1,0 +1,39 @@
+Windows Registry Editor Version 5.00
+
+; Reddit
+; https://www.reddit.com/r/sysadmin/comments/fv7d12/pushing_remote_fx_to_its_limits/?utm_source=share&utm_medium=web2x&context=3
+
+; Configure H.264/AVC hardware encoding for Remote Desktop Connections
+; https://web.archive.org/web/20170624084949/https://getadmx.com/?Category=Windows_10_2016&Policy=Microsoft.Policies.TerminalServer::TS_SERVER_AVC_HW_ENCODE_PREFERRED
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
+"AVCHardwareEncodePreferred"=dword:0
+; Disables the WDDM Drivers and goes back to legacy XDDM drivers. 
+; (better for performance on Nvidia cards, you might want to change this setting for AMD cards.)
+"fEnableWddmDriver"=dword:00000000
+
+; Sets the maximum frame rate to 60 frames per second (FPS).
+; https://docs.microsoft.com/en-US/troubleshoot/windows-server/remote/frame-rate-limited-to-30-fps
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations]
+"DWMFRAMEINTERVAL"=dword:15
+
+; Increase Windows Responsivness
+; Source:https://www.reddit.com/r/killerinstinct/comments/4fcdhy/an_excellent_guide_to_optimizing_your_windows_10/
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"SystemResponsiveness"=dword:00000000
+
+; Sets the flow control for Display vs Channel Bandwidth (aka RemoteFX devices, including controllers.)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TermDD]
+"FlowControlDisable"=dword:00000001
+"FlowControlDisplayBandwidth"=dword:0000010
+"FlowControlChannelBandwidth"=dword:0000090
+"FlowControlChargePostCompression"=dword:00000000
+
+; Removes the artificial latency delay for RDP.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
+"InteractiveDelay"=dword:00000000
+
+; Disables Windows Network Throtelling.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters]
+"DisableBandwidthThrottling"=dword:00000001
+; Enables large MTU packets.
+"DisableLargeMtu"=dword:00000000

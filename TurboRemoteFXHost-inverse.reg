@@ -1,0 +1,34 @@
+Windows Registry Editor Version 5.00
+; TurboRemoteFXHost-inverse.reg
+;
+; Based on:
+; https://www.reddit.com/r/sysadmin/comments/fv7d12/pushing_remote_fx_to_its_limits/?utm_source=share&utm_medium=web2x&context=3
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"SystemResponsiveness"=dword:00000014
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
+"AVCHardwareEncodePreferred"=-
+"fEnableWddmDriver"=-
+; The following may have been set from group policy using TurboRemoteFXHostGPO.ps1
+"SelectTransport"=-
+"bEnumerateHWBeforeSW"=-
+"AVC444ModePreferred"=-
+"MaxCompressionLevel"=-
+"ImageQuality"=-
+"fEnableVirtualizedGraphics"=-
+"VGOptimization_CaptureFrameRate"=-
+"VGOptimization_CompressionRatio"=-
+"VisualExperiencePolicy"=-
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations]
+"DWMFRAMEINTERVAL"=-
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
+"InteractiveDelay"=dword:00000032
+
+[-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TermDD]
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters]
+"DisableBandwidthThrottling"=-
+"DisableLargeMtu"=-
