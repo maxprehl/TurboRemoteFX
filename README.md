@@ -1,6 +1,6 @@
 # TurboRemoteFX
 
-A Powershell Script which changes Group Policy and Registry entries to increase RDP (Remote Desktop) performance. (Enabling RemoteFX and Hardware, ie. GPU, H.264/AVC Encoding)
+Powershell script which changes Group Policy and Registry entries to increase RDP (Remote Desktop) performance. (Enabling RemoteFX and Hardware, ie. GPU, H.264/AVC Encoding)
 
 Based on the following sources:
 
@@ -8,6 +8,7 @@ Based on the following sources:
 - ["How to manage Local Group Policy with Powershell"](https://gerane.github.io/powershell/Local-gpo-powershell/) - Blog post by Brandon Padgett, 2016
 - [PolicyFileEditor](https://github.com/dlwyatt/PolicyFileEditor) - Github project by Dave Wyatt (dlwyatt)
 - ["Optimizing RDP for casual use"](https://blog.tedd.no/2015/06/23/optimizing-rdp-for-casual-use/) - Blog post by Tedd Hansen, 2015
+- [Remote Desktop Protocol (RDP) 10 AVC/H.264 improvements...](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/remote-desktop-protocol-rdp-10-avc-h-264-improvements-in-windows/ba-p/249588) - Blog post by Microsoft Enterprise Mobility + Security Team, 2018
 
 ## Usage
 
@@ -54,7 +55,7 @@ Also recommended:
 - Client side changes
   - When opening an RDP connection make the settings:
     - Network Type: LAN
-    - Cache Bitmaps: No
+    - Persistent Bitmap Caching: No
 
 ## About
 
